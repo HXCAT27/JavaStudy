@@ -1,0 +1,47 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length==0) return "";
+        boolean flag = true;
+        String com = "";
+        for(int i = 0; i<strs[0].length(); i++){
+            for(int j=0; j<strs.length-1;j++){
+                if(i==strs[j+1].length()||strs[j].charAt(i) != strs[j+1].charAt(i)) {
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag){
+                com += strs[0].charAt(i);
+            }
+            else{
+                break;
+            }
+        }
+        return com;
+    }
+}
+
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        
+        if(0 == strs.length){
+            return "";
+        }
+        
+        String com = strs[0];
+        int len = com.length();
+        for(int i = 1;i < strs.length;i++){
+            if(strs[i].length()<len){
+                len = strs[i].length();
+            }
+            while(!com.substring(0,len).equals(strs[i].substring(0,len)) && len>0){
+                len--;
+            }
+            if(0 == len){
+                return "";
+            }
+        }
+        return com.substring(0,len);
+    }
+}
