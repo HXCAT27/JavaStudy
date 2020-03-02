@@ -1,0 +1,23 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        
+        List<String> list = new ArrayList<>();
+        backtrack(list,"",0,0,n);
+        return list;
+    }
+    
+    private void backtrack(List<String> list,String cur, int open, int close, int n){
+        
+        if(cur.length() == n*2){
+            list.add(cur);
+            return;
+        }
+        
+        if(open<n){
+            backtrack(list,cur+"(",open+1,close,n);
+        }
+        if(close<open){
+            backtrack(list,cur+")",open,close+1,n);
+        }
+    }
+}
