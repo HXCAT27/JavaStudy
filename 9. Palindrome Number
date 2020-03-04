@@ -9,3 +9,23 @@ class Solution {
         return true;
     }
 }
+
+//didn't covert to String
+class Solution {
+    public boolean isPalindrome(int x) {
+    
+        if(x<0)
+            return false;
+        
+        LinkedList<Integer> list = new LinkedList<>();
+        for(int temp = x;temp>0;temp/=10){
+            list.add(temp%10);
+        }
+        while(list.size()>1){
+            if(list.pollFirst()!=list.pollLast()){
+                return false;
+            }
+        }
+        return true;
+    }
+}
