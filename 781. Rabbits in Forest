@@ -1,0 +1,24 @@
+class Solution {
+    public int numRabbits(int[] answers) {
+        int sum = 0;
+        HashMap<Integer,Integer> A = new HashMap<>();
+        
+        for(int num:answers){
+            if(A.containsKey(num)){
+                A.put(num,(A.get(num)+1));
+            }else{
+                A.put(num,1);
+            }
+        }
+        
+        Set<Integer> keySet = A.keySet();
+        for(int num:keySet){
+            sum += ((A.get(num)/(num+1))*(num+1));
+            if((A.get(num)%(num+1))!=0){
+                sum += (num+1);
+            }
+        }
+        
+        return sum;
+    }
+}
