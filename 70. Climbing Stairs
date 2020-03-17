@@ -1,0 +1,33 @@
+//Time Limit Exceeded
+//backtracking
+// class Solution {
+//     int result = 0;
+//     public int climbStairs(int n) {
+//         helper(n);
+//         return result;
+//     }
+//     private void helper(int n){
+//         if(n<=1){
+//             result++;
+//         }else{
+//             helper(n-1);
+//             helper(n-2);
+//         }
+//     }
+// }
+
+//actually it's fibonacci
+class Solution {
+    public int climbStairs(int n) {
+        if(n<=2){
+            return n;
+        }
+        int[] result = new int[n+1];
+        result[0] = 1;
+        result[1] = 1;
+        for(int i = 2;i<=n;i++){
+            result[i] = result[i-2]+result[i-1];
+        }
+        return result[n];
+    }
+}
