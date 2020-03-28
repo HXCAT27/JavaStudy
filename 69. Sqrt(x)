@@ -1,0 +1,27 @@
+class Solution {
+    public int mySqrt(int x) {
+    
+        if(x == 1||x == 0){
+            return x;
+        }
+        
+        int front = 0;
+        int back = x/2;
+        
+        if(x/back >= back){
+            return back;
+        }
+        
+        int p;
+        
+        while((back-front)>1){
+            p = (front + back)/2;
+            if(x/p < p){
+                back = p;
+            }else{
+                front = p;
+            }
+        }
+        return front;
+    }
+}
