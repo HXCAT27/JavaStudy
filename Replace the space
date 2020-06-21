@@ -1,0 +1,22 @@
+public class Solution {
+    public String replaceSpace(StringBuffer str) {
+    	helper(str,0);
+        return str.toString();
+    }
+    
+    private void helper(StringBuffer str,int start){
+        if(start>=str.length())
+            return;
+        
+        int offset = str.indexOf(" ",start);
+        if(offset==-1)
+            return;
+        
+        String newStr = "%20";
+        char[] addCh = newStr.toCharArray();
+        str.deleteCharAt(offset);
+        str.insert(offset,addCh);
+        helper(str,offset+2);
+        
+    }
+}
