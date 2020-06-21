@@ -1,0 +1,12 @@
+class Solution {
+    public int findComplement(int num) {
+        int max = 1;
+        int count = 1;
+        while(max<num){
+            //-1要在括号里面，不然会超过上限从而出现错误
+            max = (int)(Math.pow(2,count)-1);
+            count++;
+        }
+        return max-num;
+    }
+}
