@@ -1,0 +1,16 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] dic = new int[26];
+        for(char c:magazine.toCharArray()){
+            dic[c-97]++;
+        }
+        for(char c:ransomNote.toCharArray()){
+            if(dic[c-97]>=1){
+                dic[c-97]--;
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
