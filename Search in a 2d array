@@ -1,0 +1,15 @@
+public class Solution {
+    public boolean Find(int target, int [][] array) {
+        
+        for(int column = array[0].length-1,row = 0; column >= 0 && row < array.length;){
+            if(array[row][column]>target){
+                column--;
+            }else if(array[row][column]<target){
+                row++;
+            }else if(array[row][column]==target){
+                return true;
+            }
+        }
+        return false;
+    }
+}
