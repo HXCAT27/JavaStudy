@@ -1,0 +1,26 @@
+class Solution {
+    public int romanToInt(String s) {
+        HashMap<Character, Integer> dict = new HashMap<>();
+        int sum = 0;
+        
+        dict.put('I',1);
+        dict.put('V',5);
+        dict.put('X',10);
+        dict.put('L',50);
+        dict.put('C',100);
+        dict.put('D',500);
+        dict.put('M',1000);
+        
+        int cur = 0,aft = 1;
+        for(; aft < s.length() ; cur++,aft++){
+            int valueCur = dict.get(s.charAt(cur));
+            if(valueCur<dict.get(s.charAt(aft))){
+                sum -= valueCur;
+            }else{
+                sum += valueCur;
+            }
+        }
+        sum += dict.get(s.charAt(cur));
+        return sum;
+    }
+}
