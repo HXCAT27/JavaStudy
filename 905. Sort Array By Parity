@@ -1,0 +1,12 @@
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        if(A.length==0) return A;
+        int[] newA = new int[A.length];
+        int startLoc=0,endLoc = A.length-1;
+        for(int i = 0;i<A.length;i++){
+            if(A[i]%2==0) {newA[startLoc] = A[i]; startLoc++;}
+            else{newA[endLoc]=A[i]; endLoc--;}
+        }
+        return newA;
+    }
+}
