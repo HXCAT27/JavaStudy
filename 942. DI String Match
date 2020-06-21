@@ -1,0 +1,17 @@
+class Solution {
+    public int[] diStringMatch(String S) {
+        int N = S.length();
+        int[] arr = new int[N+1];
+        int max = N;
+        int min = 0;
+        for(int i = 0; i < N ; i++){
+            if(S.charAt(i) == 'I'){
+                arr[i] = min++;
+            }else{
+                arr[i] = max--;
+            }
+        }
+        arr[N] = min;
+        return arr;
+    }
+}
